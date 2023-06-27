@@ -1,0 +1,22 @@
+<%= form_with(model: origin) do |form| %>
+  <% if origin.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(origin.errors.count, "error") %> prohibited this origin from being saved:</h2>
+
+      <ul>
+        <% origin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :origin, style: "display: block" %>
+    <%= form.text_field :origin %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

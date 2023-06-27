@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  api_detail_url: MyString
+  count_of_issue_appearances: 1
+  deck: MyString
+  description: MyString
+  string: MyString
+  gender: MyString
+  image: MyString
+  origin: MyString
+  publisher: MyString
+  real_name: MyString
+  power: MyString
+
+two:
+  name: MyString
+  api_detail_url: MyString
+  count_of_issue_appearances: 1
+  deck: MyString
+  description: MyString
+  string: MyString
+  gender: MyString
+  image: MyString
+  origin: MyString
+  publisher: MyString
+  real_name: MyString
+  power: MyString
