@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Characters</h1>
+<h1>Characters1</h1>
 
 <div id="characters">
   <% @characters.each do |character| %>
-    <%= image_tag character.image %>
     <%= render character %>
     <p>
       <%= link_to "Show this character", character %>
-      
     </p>
   <% end %>
 </div>

@@ -15,12 +15,12 @@ data = JSON.parse(response.body)
 data['results'].each do |character|
     # Extract origin data from the JSON object
     origin_data = character['origin']
-    origin_name = origin_data.present? ? origin_data['name'] : 'Unknown'
+    origin_name = origin_data.nil? ? 'Unknown' : origin_data['name']
     origin = Origin.find_or_create_by(origin: origin_name)
   
     # Extract publisher data from the JSON object
     publisher_data = character['publisher']
-    publisher_name = publisher_data.present? ? publisher_data['name'] : 'Unknown'
+    publisher_name = publisher_data.nil? ? 'Unknown' : publisher_data['name']
     publisher = Publisher.find_or_create_by(name: publisher_name)
   
     # Create the character record with the associated origin and publisher
@@ -32,8 +32,8 @@ data['results'].each do |character|
       description: character['description'],
       gender: character['gender'],
       image: character['image']['medium_url'],
-      origin: origin.origin, # Access the 'origin' attribute of the 'origin' object
-      publisher: publisher.name, # Access the 'name' attribute of the 'publisher' object
+      origin: origin,
+      publisher: publisher,
       real_name: character['real_name'],
       power: character['power']
     )

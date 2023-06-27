@@ -8,7 +8,6 @@ class CharactersController < ApplicationController
 
   # GET /characters/1 or /characters/1.json
   def show
-    @character = Character.find(params[:id])
   end
 
   # GET /characters/new

@@ -4,7 +4,7 @@
 
 <div id="characters">
   <% @characters.each do |character| %>
-    <%= image_tag character.image %>
+  
     <%= render character %>
     <p>
       <%= link_to "Show this character", character %>

@@ -32,8 +32,8 @@ data['results'].each do |character|
       description: character['description'],
       gender: character['gender'],
       image: character['image']['medium_url'],
-      origin: origin.origin, # Access the 'origin' attribute of the 'origin' object
-      publisher: publisher.name, # Access the 'name' attribute of the 'publisher' object
+      origin: origin,
+      publisher: publisher,
       real_name: character['real_name'],
       power: character['power']
     )
