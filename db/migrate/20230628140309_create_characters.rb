@@ -6,15 +6,17 @@ class CreateCharacters < ActiveRecord::Migration[7.0]
       t.integer :count_of_issue_appearances
       t.string :deck
       t.string :description
-      t.string :string
       t.string :gender
       t.string :image
-      t.string :origin
-      t.string :publisher
+      t.references :origin, foreign_key: true
+      t.references :publisher, foreign_key: true
       t.string :real_name
       t.string :power
 
       t.timestamps
     end
+
+  
+  
   end
 end

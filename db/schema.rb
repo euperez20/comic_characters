@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_173936) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_28_140309) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "api_detail_url"
     t.integer "count_of_issue_appearances"
     t.string "deck"
     t.string "description"
-    t.string "string"
     t.string "gender"
     t.string "image"
-    t.string "origin"
-    t.string "publisher"
+    t.integer "origin_id"
+    t.integer "publisher_id"
     t.string "real_name"
     t.string "power"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["origin_id"], name: "index_characters_on_origin_id"
+    t.index ["publisher_id"], name: "index_characters_on_publisher_id"
   end
 
   create_table "origins", force: :cascade do |t|
@@ -36,9 +37,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_173936) do
 
   create_table "publishers", force: :cascade do |t|
     t.string "name"
-    t.string "api_detail_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "characters", "origins"
+  add_foreign_key "characters", "publishers"
 end
