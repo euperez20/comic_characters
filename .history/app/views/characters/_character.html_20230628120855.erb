@@ -1,8 +1,13 @@
 
 <div id="<%= dom_id character %>">
   <p>
-    <strong>Name:</strong>
+    <strong>Name1:</strong>
     <%= character.name %>
+  </p>
+
+  <p>
+    <strong>Api detail url:</strong>
+    <%= character.api_detail_url %>
   </p>
 
   <p>
@@ -28,6 +33,11 @@
   </p>
 
   <p>
+    <strong>Image:</strong>
+    <%= character.image %>
+  </p>
+
+  <p>
     <strong>Origin:</strong>
     <%= character.origin.origin %>
   </p>
@@ -47,7 +57,4 @@
     <%= character.power %>
   </p>
 
-  <p>
-    <%= image_tag character.image, class: 'thumbnail-image' %>
-  </p>
 </div>

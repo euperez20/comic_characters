@@ -21,7 +21,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Image</th>      
       <th>Publisher</th>
@@ -32,7 +31,7 @@
   <tbody>
     <% @characters.each do |character| %>
       <tr> 
-        <td></td>       
+        <td><>       
         <td><%= link_to character.name, character_path(character) %></td>
         <td><%= image_tag character.image, class: 'thumbnail-image' %></td>        
         <td><%= character.publisher.name %></td>

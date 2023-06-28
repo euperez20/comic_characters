@@ -3,41 +3,33 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Characters</h1>
-<%= form_with(url: characters_path, method: :get, class: 'mb-3') do |form| %>
-  <div class="form-group">
-    <%= form.label :origin_id, 'Filtrar por origen:' %>
-    <%= form.collection_select :origin_id, Origin.all, :id, :origin, { include_blank: 'Todos los orígenes' }, class: 'form-control' %>
-  </div>
-  <%= form.submit 'Filtrar', class: 'btn btn-primary' %>
-<% end %>
+
 
 <style>
   .thumbnail-image {
     max-width: 100px;
-    max-height: 100px;
+    max-height: 70px;
   }
 </style>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Image</th>      
       <th>Publisher</th>
       <th>Origin</th>
-      <%# <th>Details</th> %>
+      <th>Details</th>
     </tr>
   </thead>
   <tbody>
     <% @characters.each do |character| %>
-      <tr> 
-        <td></td>       
-        <td><%= link_to character.name, character_path(character) %></td>
+      <tr>
+        <td><%= character.name %></td>
         <td><%= image_tag character.image, class: 'thumbnail-image' %></td>        
         <td><%= character.publisher.name %></td>
         <td><%= character.origin.origin %></td>
-        <%# <td><%= character.deck %></td> 
+        <td><%= link_to 'Mostrar', character %></td>
       </tr>
     <% end %>
   </tbody>

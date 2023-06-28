@@ -1,0 +1,30 @@
+<%= render 'layouts/layout' %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Characters</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Publisher</th>
+      <th>Origen</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= image_tag character.image, class: 'thumbnail' %></td>
+        <td><%= character.name %></td>
+        <td><%= character.publisher.name %></td>
+        <td><%= character.origin.origin %></td>
+        <td><%= link_to 'Mostrar', character %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nuevo personaje', new_character_path %>
