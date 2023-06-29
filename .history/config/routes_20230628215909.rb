@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'characters#index'
+  root 'home#index'
 
   resources :characters
   resources :publishers

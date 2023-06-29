@@ -27,7 +27,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Gemfiles Added Eunice Perez
+# Gemfiles Added
 gem 'rest-client'
 gem 'json'
 
