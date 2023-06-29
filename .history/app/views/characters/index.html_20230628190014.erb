@@ -3,6 +3,13 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Characters</h1>
+<%= form_with(url: characters_path, method: :get, class: 'mb-3') do |form| %>
+  <div class="form-group">
+    <%= form.label :origin_id, 'Filtrar por origin:' %>
+    <%= form.collection_select :origin_id, Origin.all, :id, :origin, { include_blank: 'Todos los orígenes' }, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Filtrar', class: 'btn btn-primary' %>
+<% end %>
 
 <style>
   .thumbnail-image {

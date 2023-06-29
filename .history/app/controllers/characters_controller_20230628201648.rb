@@ -3,21 +3,10 @@ class CharactersController < ApplicationController
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.all
+    # @characters = Character.all
     @characters = Character.includes(:origin, :publisher)
     @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
     @origins = Origin.all
-
-    if params[:search].present?
-      keyword = params[:search].downcase
-      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-    end
-
-    if params[:origin_id].present?
-      origin_id = params[:origin_id]
-      @characters = @characters.where(origin_id: origin_id)
-    end
-  
 
   end
 

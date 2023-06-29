@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
       origin_id = params[:origin_id]
       @characters = @characters.where(origin_id: origin_id)
     end
-  
+  end
 
   end
 

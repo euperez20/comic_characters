@@ -4,7 +4,6 @@ class PublishersController < ApplicationController
   # GET /publishers or /publishers.json
   def index
     @publishers = Publisher.all
-    @origins = Origin.all
   end
 
   # GET /publishers/1 or /publishers/1.json

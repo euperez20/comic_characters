@@ -8,17 +8,6 @@ class CharactersController < ApplicationController
     @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
     @origins = Origin.all
 
-    if params[:search].present?
-      keyword = params[:search].downcase
-      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-    end
-
-    if params[:origin_id].present?
-      origin_id = params[:origin_id]
-      @characters = @characters.where(origin_id: origin_id)
-    end
-  
-
   end
 
   # GET /characters/1 or /characters/1.json
