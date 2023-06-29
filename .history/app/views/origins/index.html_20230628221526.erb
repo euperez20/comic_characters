@@ -1,0 +1,29 @@
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+<h1>Origins</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @origins.each do |origin| %>
+      <tr>
+        <td><%= origin.id %></td>
+        <td><%= origin.name %></td>
+        <td><%= origin.description %></td>
+        <td>
+          <%= link_to "Show", origin, class: "btn btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New origin", new_origin_path, class: "btn btn-success" %>

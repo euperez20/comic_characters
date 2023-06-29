@@ -1,0 +1,38 @@
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+<style>
+  .thumbnail-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+</style>
+<h1>Characters by Origin</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>        
+        <th>Count of Issue Appearances</th>         
+        <th>Image</th>
+        <th>Origin</th>
+        <th>Publisher</th>
+        <th>Real Name</th>
+        <th>Power</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characters.each do |character| %>
+        <tr>
+          <td><%= character.name %></td>
+          <td><%= image_tag character.image, class: "thumbnail-image" %></td>
+          <td><%= character.origin.origin %></td>
+          <td><%= character.publisher.name %></td>
+          <td><%= character.real_name %></td>
+          <td><%= character.power %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

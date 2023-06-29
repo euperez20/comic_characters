@@ -1,0 +1,63 @@
+<%= render 'layouts/layout' %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Characters</h1>
+<%= paginate @characters %>
+
+en:
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+
+
+
+
+
+
+<style>
+  .thumbnail-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+</style>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Image</th>      
+      <th>Publisher</th>
+      <th>Origin</th>
+      <%# <th>Details</th> %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr> 
+        <td></td>       
+        <td><%= link_to character.name, character_path(character) %></td>
+        <td><%= image_tag character.image, class: 'thumbnail-image' %></td>        
+        <td><%= character.publisher.name %></td>
+        <td><%= character.origin.origin %></td>
+        <%# <td><%= character.deck %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Character', new_character_path %>

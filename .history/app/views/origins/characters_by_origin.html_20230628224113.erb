@@ -1,0 +1,18 @@
+<%= render '/layouts/layout' %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Characters by Origin</h1>
+
+<div id="characters">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Real Name</th>
+        <th>Power</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characters.each do |

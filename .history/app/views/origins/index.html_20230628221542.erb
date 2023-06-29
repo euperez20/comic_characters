@@ -1,0 +1,15 @@
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+<h1>Origins</h1>
+
+<div id="origins">
+  <% @origins.each do |origin| %>
+    <%= render origin %>
+    <p>
+      <%= link_to "Show this origin", origin %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New origin", new_origin_path %>
