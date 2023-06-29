@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<%# Menu %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>                
+        <th>Image</th>
+        <th>Origin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characters.each do |character| %>
+        <tr>
+          <td><%= character.name %></td>
+          <td><%= image_tag character.image, class: "thumbnail-image" %></td>
+          <td><%= character.origin.origin %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<%= render @character %>
+
+<div>
+  <%= link_to "Edit this character", edit_character_path(@character) %> |
+  <%= link_to "Back to characters", characters_path %>
+
+  <%= button_to "Destroy this character", @character, method: :delete %>
+</div>

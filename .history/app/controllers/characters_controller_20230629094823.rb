@@ -25,20 +25,8 @@ class CharactersController < ApplicationController
   # GET /characters/1 or /characters/1.json
   def show
     @character = Character.find(params[:id])
-    @characters = Character.includes(:origin, :publisher)
-    @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
+    @characters = Character.where(origin: @origin)
     @origins = Origin.all
-    @characters = Character.page(params[:page]).per(10)
-
-    if params[:search].present?
-      keyword = params[:search].downcase
-      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-    end
-
-    if params[:origin_id].present?
-      origin_id = params[:origin_id]
-      @characters = @characters.where(origin_id: origin_id)
-    end
     
   end
 
