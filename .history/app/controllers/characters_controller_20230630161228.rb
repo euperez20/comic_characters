@@ -3,17 +3,29 @@ class CharactersController < ApplicationController
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.includes(:origin, :publisher)
-  @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
-  @origins = Origin.all
-  @characters = @characters.where(publisher_id: params[:publisher_id]) if params[:publisher_id].present?
+    @characters = Character.all
+    @characters = Character.includes(:origin)
+    @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
+    @origins = Origin.all
+    @characters = Character.page(params[:page]).per(10)
 
-  if params[:search].present?
-    keyword = params[:search].downcase
-    @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-  end
+    if params[:search].present?
+      keyword = params[:search].downcase
+      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
+    end
 
-  @characters = @characters.page(params[:page]).per(10)
+    if params[:origin_id].present?
+      origin_id = params[:origin_id]
+      @characters = @characters.where(origin_id: origin_id)
+    end
+
+    if params[:publisher_id].present?
+      @publisher = Publisher.find(params[:publisher_id])
+      @characters = @publisher.characters
+    else
+      @characters = Character.all
+    end
+  
 
   end
 
