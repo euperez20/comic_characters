@@ -1,0 +1,55 @@
+
+<div id="<%= dom_id character %>">
+  <p>
+    <strong>Name:</strong>
+    <%= character.name %>
+  </p>
+
+  <p>
+    <strong>Count of issue appearances:</strong>
+    <%= character.count_of_issue_appearances %>
+  </p>
+
+  <p>
+    <strong>Deck:</strong>
+    <%= character.deck %>
+  </p>
+
+  <%# <p>
+    <strong>Description:</strong>
+    <%= character.description %> 
+  <%# </p> %>
+
+  <p>
+
+  <p>
+    <strong>Gender:</strong>
+    <%= character.gender %>
+  </p>
+
+  <p>
+    <strong>Origin:</strong>
+    <%= character.origin.origin %>
+  </p>
+
+  <p>
+    <strong>Publisher:</strong>
+    <%= character.publisher.name %>
+  </p>
+
+  <p>
+    <strong>Real name:</strong>
+    <%= character.real_name %>
+  </p>
+
+<h2>Powers</h2>
+<ul>
+  <% @character.powers.each do |power| %>
+    <li><%= power.name %></li>
+  <% end %>
+</ul>
+
+  <p>
+    <%= image_tag character.image, class: 'thumbnail-image' %>
+  </p>
+</div>

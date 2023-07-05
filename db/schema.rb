@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_140309) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_05_023858) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "api_detail_url"
@@ -29,8 +29,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_140309) do
     t.index ["publisher_id"], name: "index_characters_on_publisher_id"
   end
 
+  create_table "characters_powers", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "power_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_characters_powers_on_character_id"
+    t.index ["power_id"], name: "index_characters_powers_on_power_id"
+  end
+
   create_table "origins", force: :cascade do |t|
     t.string "origin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "powers", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,4 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_140309) do
 
   add_foreign_key "characters", "origins"
   add_foreign_key "characters", "publishers"
+  add_foreign_key "characters_powers", "characters"
+  add_foreign_key "characters_powers", "powers"
 end

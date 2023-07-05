@@ -1,0 +1,17 @@
+<!-- app/views/powers/show.html.erb -->
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @power.name %></h1>
+
+<% if @characters.any? %>
+  <h2>Characters with this power:</h2>
+  <ul>
+    <% @characters.each do |character| %>
+      <li><%= link_to character.name, character_path(character) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No characters found with this power.</p>
+<% end %>
+

@@ -1,0 +1,29 @@
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Publishers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Details</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @publishers.each do |publisher| %>
+      <tr>
+        <td><%= publisher.id %></td>
+        <td><%= publisher.name %></td>
+       
+        <td>
+          <%= link_to "Show", characters_by_publisher_path(publisher.id), class: "btn btn-primary" %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

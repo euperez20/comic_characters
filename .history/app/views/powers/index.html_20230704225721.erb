@@ -1,0 +1,20 @@
+<h1>Powers</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Characters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @powers.each do |power| %>
+      <tr>
+        <td><%= power.name %></td>
+        <td><%= power.description %></td>
+        <td><%= link_to "Characters", characters_by_power_path(power), class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<h1>Powers</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @powers.each do |power| %>
+      <tr>
+        <td><%= power.name %></td>
+        <td><%= power.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
