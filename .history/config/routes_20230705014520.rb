@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/about'
 
   root 'characters#index'
 
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   get '/characters_by_power/:power_id', to: 'characters#by_power', as: 'characters_by_power'
 
   get '/about', to: 'pages#about'
+
 
   resources :powers do
     get 'characters', to: 'characters#index', on: :member
