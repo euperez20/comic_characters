@@ -2,28 +2,24 @@
 <p style="color: green"><%= notice %></p>
 
 
-<h1>Publishers</h1>
+<h1>Powers</h1>
 
 <%= paginate @publishers, theme: 'twitter-bootstrap-4' %>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Name</th>
+      <th>Description</th>
       <th>Details</th>
-      
     </tr>
   </thead>
   <tbody>
-    <% @publishers.each do |publisher| %>
+    <% @powers.each do |power| %>
       <tr>
-        <td><%= publisher.id %></td>
-        <td><%= publisher.name %></td>
-       
-        <td>
-          <%= link_to "Show", characters_path(publisher_id: publisher.id), class: "btn btn-primary" %>
-        </td>
+        <td><%= power.name %></td>
+        <td><%= power.description %></td>
+        <td><%= link_to 'Show', power %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,8 +3,9 @@ class PublishersController < ApplicationController
 
   # GET /publishers or /publishers.json
   def index
-    @publishers = Publisher.all
+    # @publishers = Publisher.all
     @origins = Origin.all
+    # @publishers = Publisher.all.page(params[:page])
     @publishers = @publishers.page(params[:page]).per(10)
   end
 

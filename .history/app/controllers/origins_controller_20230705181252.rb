@@ -4,7 +4,7 @@ class OriginsController < ApplicationController
   # GET /origins or /origins.json
   def index
     @origins = Origin.all
-    @origins = @origins.page(params[:page]).per(5)
+    @origins = @origis.page(params[:page]).per(10)
   end
 
   # GET /origins/1 or /origins/1.json

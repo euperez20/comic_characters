@@ -5,6 +5,7 @@ class PublishersController < ApplicationController
   def index
     @publishers = Publisher.all
     @origins = Origin.all
+    
     @publishers = @publishers.page(params[:page]).per(10)
   end
 

@@ -5,7 +5,8 @@ class PublishersController < ApplicationController
   def index
     @publishers = Publisher.all
     @origins = Origin.all
-    @publishers = @publishers.page(params[:page]).per(10)
+    # @publishers = Publisher.all.page(params[:page])
+    @characters = @characters.page(params[:page]).per(10)
   end
 
   # GET /publishers/1 or /publishers/1.json

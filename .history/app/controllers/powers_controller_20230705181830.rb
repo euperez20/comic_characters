@@ -2,7 +2,7 @@ class PowersController < ApplicationController
     def index
       @powers = Power.all
       @origins = Origin.all
-      @powers = @powers.page(params[:page]).per(10)
+      @publishers = @publishers.page(params[:page]).per(10)
     end
 
     def show
