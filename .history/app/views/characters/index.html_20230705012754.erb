@@ -33,7 +33,7 @@
         <td>
           <%# Add the link to filter characters by publisher %>
           <%# <%= link_to character.publisher.name, characters_path(publisher_id: character.publisher.id) %> 
-          <%= character.publisher.name %>
+          <%= character.publisher.name, characters_path(publisher_id: character.publisher.id) %>
         </td>
 
         <td><%= link_to character.origin.origin, characters_by_origin_path(character.origin_id), class: "btn btn-link" %></td>
