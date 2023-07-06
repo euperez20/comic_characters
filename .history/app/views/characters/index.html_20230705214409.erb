@@ -5,8 +5,7 @@
 <h1>Comic Characters</h1>
 
 <%= paginate @characters, theme: 'twitter-bootstrap-4' %>
-
-<style>
+<>
   .thumbnail-image {
     max-width: 100px;
     max-height: 100px;
@@ -29,14 +28,16 @@
       <tr> 
         <td></td>       
         <td><%= link_to character.name, character_path(character) %></td>
-        <td><%= image_tag character.image, alt: character.name, class: 'thumbnail-image' %></td> 
+        <td><%= image_tag character.image, class: 'thumbnail-image' %></td> 
                
         <td>
+          <%# Add the link to filter characters by publisher %>
+          <%# <%= link_to character.publisher.name, characters_path(publisher_id: character.publisher.id) %> 
           <%= character.publisher.name %>
         </td>
 
         <td><%= link_to character.origin.origin, characters_by_origin_path(character.origin_id), class: "btn btn-link" %></td>
-        
+        <%# <td><%= character.deck %></td> 
         
       </tr>
     <% end %>
