@@ -1,7 +1,7 @@
 class Publisher < ApplicationRecord
     has_many :characters
 
-    validate :name, presence: true
+    validate :name
     validates :deck, presence: true    
 
 end
