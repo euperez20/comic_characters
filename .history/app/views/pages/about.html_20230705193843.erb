@@ -1,0 +1,17 @@
+<%= render '/layouts/layout' %>
+<p style="color: green"><%= notice %></p>
+
+<%# <h1>Pages#about</h1>
+<p>Find me in app/views/pages/about.html.erb</p> %>
+<h1><%= @title %></h1>
+<p><%= @description %></p>
+
+<p> Welcome to COMICS characters, the ultimate application for exploring information about famous comics! 
+Our platform provides comprehensive details about each comic and its individual characters. 
+Additionally, we offer powerful filtering options based on character origin, as well as the ability to discover characters who possess similar powers.
+</p>
+
+<p> To ensure a rich and reliable database, our project utilizes two main data sources.
+We leverage the APIs provided by https://comicvine.gamespot.com/ to gather the necessary information. The first API focuses on characters, allowing us to retrieve detailed data about various comic book personas. The API endpoint we use for this purpose is: https://comicvine.gamespot.com/api/characters/?api_key=5f517188a6f8c4e8daff13e9950f1321b0200271&limit=100&offset=0&format=json
+</p>
+
