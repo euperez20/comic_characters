@@ -4,6 +4,7 @@
 <%# <h1>Pages#about</h1>
 <p>Find me in app/views/pages/about.html.erb</p> %>
 <h1><%= @title %></h1>
+<p><%= @description %></p>
 
   <!-- Bootstrap styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
@@ -16,15 +17,8 @@
     <li>For powers and the relation between powers and characters, we relied on the <a href="https://comicvine.gamespot.com/api/powers/?api_key=5f517188a6f8c4e8daff13e9950f1321b0200271&offset=0&format=json">Powers API</a> from Comic Vine.</li>
   </ul>
 
-<p>The relationships between the tables are as follows:</p>
-  <ul>
-    <li>A character belongs to an origin (via origin_id foreign key) and belongs to a publisher (via publisher_id foreign key)</li> 
-    <li>A publisher can have multiple characters.</li>
-    <li>An origin can have multiple characters.</li>
-    <li>A character can have multiple powers, and a power can be associated with multiple characters. This relationship is implemented using a join table called characters_powers.</li>
-</ul>
-
-<h2>Table Structures</h2>
+</head>
+<body>
   <div class="container">
     <h2>Characters Table</h2>
     <table class="table">
@@ -251,13 +245,13 @@
     </table>
   </div>
   
-<div class="mt-4">
-  <h2>Entity-Relationship Diagram</h2>
-  <%= image_tag("db_diagram_v1.jpg", alt: "Entity-Relationship Diagram", class: "img-fluid") %>
-</div>
-
+    <div class="mt-4">
+      <h2>Entity-Relationship Diagram</h2>
+      <img src="uploads/db_diagram_v1.jpg" alt="Entity-Relationship Diagram" class="img-fluid">
+    </div>
   
 
   <!-- Scripts Bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-
+</body>
+</html>
