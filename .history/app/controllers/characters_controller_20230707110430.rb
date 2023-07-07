@@ -2,49 +2,27 @@ class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
 
   # GET /characters or /characters.json
-
   def index
     @characters = Character.includes(:origin, :publisher)
-  
-    if params[:origin_id].present?
-      @characters = @characters.where(origin_id: params[:origin_id])
-    end
-  
-    if params[:search].present?
-      keyword = params[:search].downcase
-      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-    end
-  
-    if params[:power_id].present?
-      @power = Power.find(params[:power_id])
-      @characters = @power.characters
-    end
-  
+    @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
     @origins = Origin.all
-    @characters = @characters.page(params[:page]).per(10)
+    @characters = @characters.where(publisher_id: params[:publisher_id]) if params[:publisher_id].present?
+
+  if params[:search].present?
+    keyword = params[:search].downcase
+    @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
   end
-  
-  # def index
-  #   @characters = Character.includes(:origin, :publisher)
-  #   @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
-  #   @origins = Origin.all
-  #   @characters = @characters.where(publisher_id: params[:publisher_id]) if params[:publisher_id].present?
 
-  # if params[:search].present?
-  #   keyword = params[:search].downcase
-  #   @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-  # end
+  if params[:power_id].present?
+    @power = Power.find(params[:power_id])
+    @characters = @power.characters
+  else
+    @characters = Character.all
+  end
 
-  # if params[:power_id].present?
-  #   @power = Power.find(params[:power_id])
-  #   @characters = @power.characters
-  # else
-  #   @characters = Character.all
-  # end
+  @characters = @characters.page(params[:page]).per(10)
 
-  # @characters = @characters.page(params[:page]).per(10)
-
-  # end
+  end
 
   # GET /characters/1 or /characters/1.json
   def show

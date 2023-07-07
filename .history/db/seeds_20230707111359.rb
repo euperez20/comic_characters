@@ -20,6 +20,6 @@ end
 characters = Character.all
 
 characters.each do |character|
-  random_powers = Power.all.sample(3) # for porject I will use only 3 powers
+  random_powers = Power.all.sample(3) # for 
   character.powers << random_powers
 end

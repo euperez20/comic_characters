@@ -2,28 +2,6 @@ class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
 
   # GET /characters or /characters.json
-
-  def index
-    @characters = Character.includes(:origin, :publisher)
-  
-    if params[:origin_id].present?
-      @characters = @characters.where(origin_id: params[:origin_id])
-    end
-  
-    if params[:search].present?
-      keyword = params[:search].downcase
-      @characters = @characters.where("lower(name) LIKE ?", "%#{keyword}%")
-    end
-  
-    if params[:power_id].present?
-      @power = Power.find(params[:power_id])
-      @characters = @power.characters
-    end
-  
-    @origins = Origin.all
-    @characters = @characters.page(params[:page]).per(10)
-  end
-  
   # def index
   #   @characters = Character.includes(:origin, :publisher)
   #   @characters = @characters.where(origin_id: params[:origin_id]) if params[:origin_id].present?
