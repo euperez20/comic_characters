@@ -6,6 +6,13 @@
 
 <%= paginate @characters, theme: 'twitter-bootstrap-4' %>
 
+<style>
+  .thumbnail-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+</style>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,7 +20,8 @@
       <th>Name</th>
       <th>Image</th>      
       <th>Publisher</th>
-      <th>Origin</th>      
+      <th>Origin</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -28,8 +36,12 @@
         </td>
 
         <td><%= link_to character.origin.origin, characters_by_origin_path(character.origin_id), class: "btn btn-link" %></td>
-                
+        
+        
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+
