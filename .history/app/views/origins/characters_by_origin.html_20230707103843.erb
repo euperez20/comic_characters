@@ -1,6 +1,12 @@
 <%= render '/layouts/layout' %>
 <p style="color: green"><%= notice %></p>
 
+<%# <style>
+  .thumbnail-image {
+    max-width: 100px;
+    max-height: 60px;
+  }
+</style> %>
 <h1>Characters by Origin</h1>
 
 <div class="table-responsive">
@@ -16,7 +22,7 @@
       <% @characters.each do |character| %>
         <tr>
           <td><%= link_to character.name, character_path(character) %></td>
-          <td><%= image_tag character.image, alt: character.name, class: "thumbnail-image" %></td>
+          <td><%= image_tag character.image, alt: character.nameclass: "thumbnail-image" %></td>
           <td><%= character.origin.origin %></td>
         </tr>
       <% end %>

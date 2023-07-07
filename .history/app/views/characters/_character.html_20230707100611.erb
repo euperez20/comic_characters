@@ -1,7 +1,8 @@
 
 <div id="<%= dom_id character %>">
-  
-  <h2><%= character.name %></h2>
+  <p>   
+    <h2><%= character.name %></h2>
+  </p>
 
   <p>
     <strong>Count of issue appearances:</strong>
@@ -33,11 +34,9 @@
     <% @character.powers.each do |power| %>
       <li><%= link_to power.name, characters_path(power_id: power.id)%></li>
     <% end %>
-  </ul>
+</ul>
 
-  <p>
-    <%= image_tag character.image, alt: character.name, class: 'image' %>
-    <%# <%= image_tag character.image, class: 'thumbnail-image' %> 
+<p>
+    <%= image_tag character.image, class: 'thumbnail-image' %>
   </p>
-</div>    
 
