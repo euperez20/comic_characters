@@ -65,7 +65,7 @@ class OriginsController < ApplicationController
     end
   end
 
-  # Delete
+  # DELETE /origins/1 or /origins/1.json
   def destroy
     @origin.destroy
 
@@ -76,11 +76,12 @@ class OriginsController < ApplicationController
   end
 
   private
-    
+    # Use callbacks to share common setup or constraints between actions.
     def set_origin
       @origin = Origin.find(params[:id])
     end
-   
+
+    # Only allow a list of trusted parameters through.
     def origin_params
       params.require(:origin).permit(:origin)
     end

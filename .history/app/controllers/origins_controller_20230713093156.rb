@@ -80,6 +80,7 @@ class OriginsController < ApplicationController
     def set_origin
       @origin = Origin.find(params[:id])
     end
+
    
     def origin_params
       params.require(:origin).permit(:origin)

@@ -67,7 +67,7 @@ class PublishersController < ApplicationController
       @publisher = Publisher.find(params[:id])
     end
 
-    
+    # Only allow a list of trusted parameters through.
     def publisher_params
       params.require(:publisher).permit(:name, :api_detail_url)
     end

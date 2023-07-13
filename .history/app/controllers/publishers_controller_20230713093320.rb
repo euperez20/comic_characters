@@ -51,7 +51,7 @@ class PublishersController < ApplicationController
     end
   end
 
-  # Delete
+  # DELETE 
   def destroy
     @publisher.destroy
 
@@ -62,12 +62,12 @@ class PublishersController < ApplicationController
   end
 
   private
-    
+    # Use callbacks to share common setup or constraints between actions.
     def set_publisher
       @publisher = Publisher.find(params[:id])
     end
 
-    
+    # Only allow a list of trusted parameters through.
     def publisher_params
       params.require(:publisher).permit(:name, :api_detail_url)
     end

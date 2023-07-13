@@ -93,7 +93,7 @@ class CharactersController < ApplicationController
       @character = Character.find(params[:id])
     end
 
-    # List of trusted parameters
+    # List of trusted parameters through.
     def character_params
       params.require(:character).permit(:name, :api_detail_url, :count_of_issue_appearances, :deck, :description, :string, :gender, :image, :origin, :publisher, :real_name, :power)
     end

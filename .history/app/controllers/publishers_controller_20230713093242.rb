@@ -8,22 +8,22 @@ class PublishersController < ApplicationController
     @publishers = @publishers.page(params[:page]).per(10)
   end
 
-  # GET publishers
+  # GET publisher
   def show
     @publisher = Publisher.find(params[:id])
     @characters = @publisher.characters
   end
 
-  # GET New
+  # GET /publishers/new
   def new
     @publisher = Publisher.new
   end
 
-  # GET Edit
+  # GET /publishers/1/edit
   def edit
   end
 
-  # POST Create
+  # POST /publishers or /publishers.json
   def create
     @publisher = Publisher.new(publisher_params)
 
@@ -38,7 +38,7 @@ class PublishersController < ApplicationController
     end
   end
 
-  # Update
+  # PATCH/PUT /publishers/1 or /publishers/1.json
   def update
     respond_to do |format|
       if @publisher.update(publisher_params)
@@ -51,7 +51,7 @@ class PublishersController < ApplicationController
     end
   end
 
-  # Delete
+  # DELETE /publishers/1 or /publishers/1.json
   def destroy
     @publisher.destroy
 
@@ -62,12 +62,12 @@ class PublishersController < ApplicationController
   end
 
   private
-    
+    # Use callbacks to share common setup or constraints between actions.
     def set_publisher
       @publisher = Publisher.find(params[:id])
     end
 
-    
+    # Only allow a list of trusted parameters through.
     def publisher_params
       params.require(:publisher).permit(:name, :api_detail_url)
     end
